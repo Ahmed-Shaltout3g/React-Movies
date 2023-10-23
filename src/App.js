@@ -21,9 +21,12 @@ import { authContext } from "./Context/AuthContext";
 import $ from "jquery";
 import Favorite from "./components/Favorite/Favorite";
 import { Offline, Online } from "react-detect-offline";
+import { mediaContext } from "./Context/MediaContext";
 
 export default function App() {
   let { userData, setData } = useContext(authContext);
+  let { favIds, favItems } = useContext(mediaContext);
+
   useEffect(() => {
     if (localStorage.getItem("userData")) {
       DtataToken();
@@ -33,6 +36,9 @@ export default function App() {
   function logOut() {
     localStorage.removeItem("userData");
     localStorage.removeItem("favMove");
+    localStorage.removeItem("favIds");
+    favIds.length = 0;
+    favItems.length = 0;
 
     setData(null);
     return <Navigate to="/login" />;

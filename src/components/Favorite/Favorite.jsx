@@ -40,7 +40,7 @@ export default function Favorite() {
         favItems.pop();
         ids.splice(index, 1)
         media_types.splice(index, 1)
-
+        favIds.pop()
         idMedia.splice(index, 1)
         localStorage.setItem('favIds', JSON.stringify(idMedia));
 
@@ -99,7 +99,7 @@ export default function Favorite() {
                 </div>
             </div>
             <div className="row mt-5">
-                {!JSON.parse(localStorage.getItem("favMove")).length ? <p className='fa-2xl text-danger'>No items yet</p> : ''}
+                {!JSON.parse(localStorage.getItem("favMove")) ? <p className='fa-2xl text-danger'>No items yet</p> : ''}
 
 
                 {items?.map((item, index) =>

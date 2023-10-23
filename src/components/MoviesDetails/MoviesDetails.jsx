@@ -90,7 +90,7 @@ export default function MoviesDetails() {
             let str = localStorage.getItem("favIds")
             let retArray = JSON.parse(retString)
             let favIds = JSON.parse(str)
-            favIds.pop([{ id, media_type }])
+            favIds.pop()
             retArray.pop(poster_path)
             favItems.pop(poster_path)
             if (isRemove == true) {
@@ -110,9 +110,9 @@ export default function MoviesDetails() {
             setfav(true)
             favIds.push({ id, media_type })
             favItems.push(poster_path)
+            console.log(favIds);
             localStorage.setItem('favIds', JSON.stringify(Array.from(new Set(favIds.map(JSON.stringify))).map(JSON.parse)))
-            let string = JSON.stringify(Array.from(new Set(favItems)))
-            localStorage.setItem('favMove', string)
+            localStorage.setItem('favMove', JSON.stringify(Array.from(new Set(favItems))))
             if (isRemove == true) {
                 setIsRemove(false)
 
