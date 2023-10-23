@@ -28,10 +28,10 @@ export default function Home() {
         smartSpeed: 1000,
         responsive: {
             0: {
-                items: 1,
+                items: 2,
             },
             400: {
-                items: 1,
+                items: 3,
             },
             600: {
                 items: 2,

@@ -23,26 +23,28 @@ export default function Favorite() {
     useEffect(() => {
 
 
-        if (favItems.length) {
-            let x = idMedia.map(({ media_type }) => media_type);
-            setmedia_type(x)
-            idMedia.map(({ media_type }) => media_types.push(media_type));
-            idMedia?.map(({ id }) => ids.push(id));
-        } else {
-            setNoitems(true)
-        }
+
+        console.log(media_types);
+        let media_type = idMedia.map(({ media_type }) => media_type);
+        setmedia_type(media_type)
+        let id = idMedia?.map(({ id }) => id);
+        setIds(id)
+        console.log(media_types);
+
 
     }, [])
 
     function deletefav(index) {
         items.splice(index, 1)
         localStorage.setItem('favMove', JSON.stringify(items));
-        favItems.pop()
+        favItems.pop();
+        ids.splice(index, 1)
+        media_types.splice(index, 1)
+
         idMedia.splice(index, 1)
         localStorage.setItem('favIds', JSON.stringify(idMedia));
-        favIds.pop()
-        media_types.pop()
-        ids.pop()
+
+
 
         if (isRemove == true) {
             setIsRemove(false)
@@ -97,7 +99,7 @@ export default function Favorite() {
                 </div>
             </div>
             <div className="row mt-5">
-                {noItems ? <p className='fa-2xl text-danger'>No items yet</p> : ''}
+                {!JSON.parse(localStorage.getItem("favMove")).length ? <p className='fa-2xl text-danger'>No items yet</p> : ''}
 
 
                 {items?.map((item, index) =>

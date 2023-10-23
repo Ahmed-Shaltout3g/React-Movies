@@ -7,8 +7,8 @@ export function MediaContextProvider(props) {
     let [tv, setTv] = useState([]);
     let [people, setpeople] = useState([]);
     let [moviesPages, setMoviesPages] = useState([]);
-    const [favItems, setFavItems] = useState([]);
-    const [favIds, setFavIds] = useState([]);
+    const [favItems, setFavItems] = useState(JSON.parse(localStorage.getItem("favMove")) || []);
+    const [favIds, setFavIds] = useState(JSON.parse(localStorage.getItem("favIds")) || []);
 
 
 
@@ -60,7 +60,7 @@ export function MediaContextProvider(props) {
     }, []);
 
 
-    return <mediaContext.Provider value={{ movies, tv, people, moviesPages, peoplePages, tvPages, getpages, favIds, setMoviesPages, getpagespeople, setpeoplePages, settvPages, favItems }}>
+    return <mediaContext.Provider value={{ movies, tv, people, moviesPages, peoplePages, tvPages, getpages, setFavItems, setFavIds, favIds, setMoviesPages, getpagespeople, setpeoplePages, settvPages, favItems }}>
         {props.children}
     </mediaContext.Provider>
 

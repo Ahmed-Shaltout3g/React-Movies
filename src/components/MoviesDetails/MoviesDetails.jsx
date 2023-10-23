@@ -11,7 +11,7 @@ import { Helmet } from 'react-helmet';
 
 export default function MoviesDetails() {
 
-    let { favItems, favIds } = useContext(mediaContext)
+    let { favItems, favIds, setFavItems, setFavIds } = useContext(mediaContext)
     let { id, media_type } = useParams();
     const [items, setitems] = useState({});
     const [fav, setfav] = useState(false);
@@ -32,6 +32,7 @@ export default function MoviesDetails() {
 
 
     useEffect(() => {
+
         if (media_type == 'person') {
             getItemByID(id, media_type)
 
@@ -64,10 +65,10 @@ export default function MoviesDetails() {
         smartSpeed: 1000,
         responsive: {
             0: {
-                items: 1,
+                items: 2,
             },
             400: {
-                items: 1,
+                items: 3,
             },
             600: {
                 items: 2,
@@ -89,7 +90,7 @@ export default function MoviesDetails() {
             let str = localStorage.getItem("favIds")
             let retArray = JSON.parse(retString)
             let favIds = JSON.parse(str)
-            favIds.pop({ id, media_type })
+            favIds.pop([{ id, media_type }])
             retArray.pop(poster_path)
             favItems.pop(poster_path)
             if (isRemove == true) {
@@ -102,11 +103,15 @@ export default function MoviesDetails() {
 
         }
         else {
+
+
+
+
             setfav(true)
             favIds.push({ id, media_type })
             favItems.push(poster_path)
-            localStorage.setItem('favIds', JSON.stringify(favIds))
-            let string = JSON.stringify(favItems)
+            localStorage.setItem('favIds', JSON.stringify(Array.from(new Set(favIds.map(JSON.stringify))).map(JSON.parse)))
+            let string = JSON.stringify(Array.from(new Set(favItems)))
             localStorage.setItem('favMove', string)
             if (isRemove == true) {
                 setIsRemove(false)
