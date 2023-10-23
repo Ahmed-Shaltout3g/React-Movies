@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/React-Movies/static/css/main.662fe917.css",
-    "main.js": "/React-Movies/static/js/main.6ca394cc.js",
+    "main.js": "/React-Movies/static/js/main.24caa043.js",
     "static/js/787.733f52d7.chunk.js": "/React-Movies/static/js/787.733f52d7.chunk.js",
     "static/media/dark-vip-cinema-studio-still-life.jpg": "/React-Movies/static/media/dark-vip-cinema-studio-still-life.6a59e7e77c8e53354090.jpg",
     "static/media/Rectangle 31.png": "/React-Movies/static/media/Rectangle 31.1bf6e442b4f3544a3541.png",
@@ -16,11 +16,11 @@
     "static/media/fa-v4compatibility.woff2": "/React-Movies/static/media/fa-v4compatibility.1bac2991f3dbfa237aec.woff2",
     "index.html": "/React-Movies/index.html",
     "main.662fe917.css.map": "/React-Movies/static/css/main.662fe917.css.map",
-    "main.6ca394cc.js.map": "/React-Movies/static/js/main.6ca394cc.js.map",
+    "main.24caa043.js.map": "/React-Movies/static/js/main.24caa043.js.map",
     "787.733f52d7.chunk.js.map": "/React-Movies/static/js/787.733f52d7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.662fe917.css",
-    "static/js/main.6ca394cc.js"
+    "static/js/main.24caa043.js"
   ]
 }
